@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-full bg-white">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JS -->
+    <script src="script.js" defer></script>
+</head>
+<body class="h-full">
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Validação JS</h2>
+        </div>
+
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form class="space-y-6" action="#" onsubmit="handleCadastrar(event)">
+                <!-- Nome -->
+                <div>
+                    <label for="nome" class="block text-sm font-medium leading-6 text-gray-900">Nome</label>
+                    <div class="mt-2">
+                    <input id="nome" name="nome" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- Endereço -->
+                <div>
+                    <label for="endereco" class="block text-sm font-medium leading-6 text-gray-900">Endereço</label>
+                    <div class="mt-2">
+                    <input id="endereco" name="endereco" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- Bairro -->
+                <div>
+                    <label for="bairro" class="block text-sm font-medium leading-6 text-gray-900">Bairro</label>
+                    <div class="mt-2">
+                    <input id="bairro" name="bairro" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- CEP -->
+                <div>
+                    <label for="cep" class="block text-sm font-medium leading-6 text-gray-900">CEP</label>
+                    <div class="mt-2">
+                    <input maxlength="9" oninput="formatCEP(event)" id="cep" name="cep" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- Cidade -->
+                <div>
+                    <label for="cidade" class="block text-sm font-medium leading-6 text-gray-900">Cidade</label>
+                    <div class="mt-2">
+                    <input id="cidade" name="cidade" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- Estado -->
+                <div>
+                    <label for="estado" class="block text-sm font-medium leading-6 text-gray-900">Estado</label>
+                    <div class="mt-2">
+                    <input id="estado" name="estado" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- Telefone -->
+                <div>
+                    <label for="telefone" class="block text-sm font-medium leading-6 text-gray-900">Telefone</label>
+                    <div class="mt-2">
+                    <input maxlength="14" oninput="formatTelefone(event)" id="telefone" name="telefone" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- Celular -->
+                <div>
+                    <label for="celular" class="block text-sm font-medium leading-6 text-gray-900">Celular</label>
+                    <div class="mt-2">
+                    <input maxlength="16" oninput="formatCelular(event)" id="celular" name="celular" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- RG -->
+                <div>
+                    <label for="rg" class="block text-sm font-medium leading-6 text-gray-900">RG</label>
+                    <div class="mt-2">
+                    <input maxlength="12" oninput="formatRG(event)" id="rg" name="rg" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <!-- CPF -->
+                <div>
+                    <label for="cpf" class="block text-sm font-medium leading-6 text-gray-900">CPF</label>
+                    <div class="mt-2">
+                    <input oninput="formatCPF(event)" maxlength="14" id="cpf" name="cpf" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                    <p></p>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 p-2">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
