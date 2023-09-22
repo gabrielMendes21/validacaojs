@@ -19,80 +19,80 @@ let CPFNumber= "xxx.xxx.xxx-xx"
 let RGNumber= "xx.xxx.xxx-x"
 
 // Formatação de campos
-function formatCEP(event) {
-    if (!CEPInput.contains(event.target)) {
-        let inputValue = CEPInput.value
+// function formatCEP(event) {
+//     if (!CEPInput.contains(event.target)) {
+//         let inputValue = CEPInput.value
 
-        for (num of CEPInput.value) {
-            CEPNumber = CEPNumber.replace("x", num)
-        }
+//         for (num of CEPInput.value) {
+//             CEPNumber = CEPNumber.replace("x", num)
+//         }
 
-        if (inputValue.length === 8) {
-            CEPInput.value = CEPNumber
-        }
-    }
-}
+//         if (inputValue.length === 8) {
+//             CEPInput.value = CEPNumber
+//         }
+//     }
+// }
 
-function formatTelefone(event) {
-    if (!telefone.contains(event.target)) {
-        let inputValue = telefone.value
+// function formatTelefone(event) {
+//     if (!telefone.contains(event.target)) {
+//         let inputValue = telefone.value
 
-        for (num of telefone.value) {
-            phoneNumber = phoneNumber.replace("x", num)
-        }
+//         for (num of telefone.value) {
+//             phoneNumber = phoneNumber.replace("x", num)
+//         }
 
-        if (inputValue.length === 10) {
-            telefone.value = phoneNumber
-        }
-    }
-}
+//         if (inputValue.length === 10) {
+//             telefone.value = phoneNumber
+//         }
+//     }
+// }
 
-function formatCelular(event) {
-    if (!celular.contains(event.target)) {
-        let inputValue = celular.value
+// function formatCelular(event) {
+//     if (!celular.contains(event.target)) {
+//         let inputValue = celular.value
 
-        for (num of celular.value) {
-            celNumber = celNumber.replace("x", num)
-        }
+//         for (num of celular.value) {
+//             celNumber = celNumber.replace("x", num)
+//         }
 
-        if (inputValue.length === 11) {
-            celular.value = celNumber
-        }
-    }
-}
+//         if (inputValue.length === 11) {
+//             celular.value = celNumber
+//         }
+//     }
+// }
 
-function formatRG(event) {
-    if (!RGInput.contains(event.target)) {
-        let inputValue = RGInput.value
+// function formatRG(event) {
+//     if (!RGInput.contains(event.target)) {
+//         let inputValue = RGInput.value
 
-        for (num of RGInput.value) {
-            RGNumber = RGNumber.replace("x", num)
-        }
+//         for (num of RGInput.value) {
+//             RGNumber = RGNumber.replace("x", num)
+//         }
 
-        if (inputValue.length === 9) {
-            RGInput.value = RGNumber
-        }
-    }
-}
-function formatCPF(event) {
-    if (!CPFInput.contains(event.target)) {
-        let inputValue = CPFInput.value
+//         if (inputValue.length === 9) {
+//             RGInput.value = RGNumber
+//         }
+//     }
+// }
+// function formatCPF(event) {
+//     if (!CPFInput.contains(event.target)) {
+//         let inputValue = CPFInput.value
 
-        for (num of CPFInput.value) {
-            CPFNumber = CPFNumber.replace("x", num)
-        }
+//         for (num of CPFInput.value) {
+//             CPFNumber = CPFNumber.replace("x", num)
+//         }
 
-        if (inputValue.length === 11) {
-            CPFInput.value = CPFNumber
-        }
-    }
-}
+//         if (inputValue.length === 11) {
+//             CPFInput.value = CPFNumber
+//         }
+//     }
+// }
 
-document.addEventListener('click', formatCEP)
-document.addEventListener('click', formatTelefone)
-document.addEventListener('click', formatCelular)
-document.addEventListener('click', formatRG)
-document.addEventListener('click', formatCPF)
+// document.addEventListener('click', formatCEP)
+// document.addEventListener('click', formatTelefone)
+// document.addEventListener('click', formatCelular)
+// document.addEventListener('click', formatRG)
+// document.addEventListener('click', formatCPF)
 
 function handleCadastrar(event) {
     event.preventDefault()
@@ -121,7 +121,7 @@ function handleCadastrar(event) {
 
     // CEP
     // * Veja a função formatCEP
-    if (CEPInput.value.length < 9) {
+    if (CEPInput.value.length != 8) {
         CEPInput.nextElementSibling.innerHTML = "O CEP precisa ter 8 caracteres"
     } else {
         CEPInput.nextElementSibling.innerHTML = ""
@@ -143,7 +143,7 @@ function handleCadastrar(event) {
 
     // Telefone
     // * Veja a função formatTelefone
-    if (telefone.value.length < 14) {
+    if (telefone.value.length != 10) {
         telefone.nextElementSibling.innerHTML = "Insira um telefone válido"
     } else {
         telefone.nextElementSibling.innerHTML = ""
@@ -151,7 +151,7 @@ function handleCadastrar(event) {
 
     // Celular
     // * Veja a função formatCelular
-    if (celular.value.length < 14) {
+    if (celular.value.length != 11) {
         celular.nextElementSibling.innerHTML = "Insira um celular válido"
     } else {
         celular.nextElementSibling.innerHTML = ""
@@ -167,8 +167,8 @@ function handleCadastrar(event) {
 
     // CPF
     // * Veja a função formatCPF
-    const novePrimeirosDigitos = CPFInput.value.split("-")[0].split(".").join("")
-    const doisUltimosDigitos = CPFInput.value.split(".")[2].split("-")[1]
+    const novePrimeirosDigitos = CPFInput.value.split("", 9).join("")
+    const doisUltimosDigitos = CPFInput.value.split("").splice(9)
     const sequenciaDeValidacaoPrimeiroDigito = [10, 9, 8, 7, 6, 5, 4, 3, 2]
     let sum = 0
 
